@@ -14,3 +14,6 @@ format = "modules"
 [[rules]]
 globs = [ "**/*.wasm" ]
 type = "CompiledWasm"
+
+[placement]
+mode = "smart"
