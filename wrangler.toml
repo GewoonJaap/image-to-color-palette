@@ -1,0 +1,16 @@
+name = "image-to-color-palette"
+type = "javascript"
+workers_dev = true
+compatibility_date = "2022-02-27"
+main = "build/worker/shim.mjs"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[build.upload]
+dir = "build/worker"
+format = "modules"
+
+[[rules]]
+globs = [ "**/*.wasm" ]
+type = "CompiledWasm"
