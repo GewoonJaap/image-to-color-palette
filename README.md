@@ -21,7 +21,7 @@ Extract a color palette from an image URL using Cloudflare Workers.
 
 `https://image-to-color-palette.mrproper.dev/{IMAGE URL}`
 
-[Demo]: https://image-to-color-palette.mrproper.dev/https://user-images.githubusercontent.com/33700526/207815865-9b471652-5723-4d35-8847-dce0fb9701eb.png
+**Demo**: https://image-to-color-palette.mrproper.dev/https://user-images.githubusercontent.com/33700526/207815865-9b471652-5723-4d35-8847-dce0fb9701eb.png
 
 ## Return value
     
