@@ -356,7 +356,7 @@ dependencies = [
 name = "image-to-palette"
 version = "0.1.0"
 dependencies = [
- "cfg-if 0.1.10",
+ "cfg-if 1.0.0",
  "color-thief",
  "console_error_panic_hook",
  "image",
