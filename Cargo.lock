@@ -403,7 +403,7 @@ dependencies = [
 name = "image-to-palette"
 version = "0.1.0"
 dependencies = [
- "cfg-if 0.1.10",
+ "cfg-if 1.0.0",
  "color-thief",
  "console_error_panic_hook",
  "image",
@@ -821,9 +821,9 @@ dependencies = [
 
 [[package]]
 name = "tiny-skia"
-version = "0.6.3"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1bcfd4339bdd4545eabed74b208f2f1555f2e6540fb58135c01f46c0940aa138"
+checksum = "642680569bb895b16e4b9d181c60be1ed136fa0c9c7f11d004daf053ba89bf82"
 dependencies = [
  "arrayref",
  "arrayvec",
@@ -831,6 +831,17 @@ dependencies = [
  "cfg-if 1.0.0",
  "png",
  "safe_arch",
+ "tiny-skia-path",
+]
+
+[[package]]
+name = "tiny-skia-path"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c114d32f0c2ee43d585367cb013dfaba967ab9f62b90d9af0d696e955e70fa6c"
+dependencies = [
+ "arrayref",
+ "bytemuck",
 ]
 
 [[package]]
