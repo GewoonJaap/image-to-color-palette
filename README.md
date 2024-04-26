@@ -13,7 +13,7 @@ Extract a color palette from an image URL using Cloudflare Workers.
 - Install [Rust](https://www.rust-lang.org/tools/install)
 - Install [Cloudflare Wrangler](https://developers.cloudflare.com/workers/cli-wrangler/install-update)
 - `wrangler login`
-- Create a Cloudflare worker with name: `svg-to-png`;
+- Create a Cloudflare worker with name: `image-to-color-palette`;
 - `wrangler dev` to local test
 - `wrangler publish` to publish to Cloudflare
 
