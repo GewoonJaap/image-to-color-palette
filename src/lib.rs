@@ -84,6 +84,10 @@ async fn handle_render(image_url: String) -> Result<Response> {
     });
     let mut headers = Headers::new();
     headers.set("content-type", "application/json").unwrap();
+    // CORS allow all
+    headers.set("Access-Control-Allow-Origin", "*").unwrap();
+    headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS").unwrap();
+    headers.set("Access-Control-Allow-Headers", "*").unwrap();
     
     Ok(Response::from_json(&response_data).unwrap().with_headers(headers))
 }
