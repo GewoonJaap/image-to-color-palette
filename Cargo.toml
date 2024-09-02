@@ -19,7 +19,7 @@ url = "2.5.2"
 color-thief = "0.2"
 image = "0.24.9"
 serde = { version = "1.0", features = ["derive"] }
-rgb = "0.8.48"
+rgb = "0.8.50"
 
 console_error_panic_hook = { version = "0.1.7", optional = true }
 
