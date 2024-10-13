@@ -3,9 +3,9 @@ use worker::*;
 use color_thief::*;
 use serde::ser::{Serialize, Serializer};
 use serde_json::json;
+use serde_json::Value;
 
 use console_error_panic_hook::set_once as set_panic_hook;
-
 
 #[derive(Debug)]
 struct SerializableRGB {
@@ -35,13 +35,27 @@ impl Serialize for SerializableRGB {
 }
 
 #[event(fetch)]
-pub async fn main(req: Request, _env: Env, _ctx: worker::Context) -> Result<Response> {
+pub async fn main(mut req: Request, _env: Env, _ctx: worker::Context) -> Result<Response> {
     console_log!("{} - [{}]", Date::now().to_string(), req.path());
-    let image_path = req.path()[1..].to_string();
 
     set_panic_hook();
-    
-    match handle_render(image_path).await {
+
+    let image_url = match req.method() {
+        Method::Get => req.path()[1..].to_string(),
+        Method::Post => {
+            let json: Value = req.json().await.map_err(|err| {
+                console_log!("Failed to parse JSON body: {}", err);
+                worker::Error::RustError("Invalid JSON body".into())
+            })?;
+            json["url"].as_str().ok_or_else(|| {
+                console_log!("URL not found in JSON body");
+                worker::Error::RustError("URL not found in JSON body".into())
+            })?.to_string()
+        },
+        _ => return Response::error("Method not allowed", 405),
+    };
+
+    match handle_render(image_url).await {
         Err(err) => {
             println!("error: {:?}", err);
             Response::error(format!("an unexpected error occurred: {}", err), 500)
