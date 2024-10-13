@@ -32,3 +32,13 @@ Extract a color palette from an image URL using Cloudflare Workers.
 }
 ```
 Each entry in the `rgb` object is a RGB color value in the format `R,G,B`.
+
+## Post Request
+It is also possible to make a POST request: `https://image-to-color-palette.mrproper.dev`
+
+## Body
+```json
+{
+    "url": "https://user-images.githubusercontent.com/33700526/207815865-9b471652-5723-4d35-8847-dce0fb9701eb.png"
+}
+```
